@@ -1,0 +1,18 @@
+<div class="table">
+    <table>
+        <tr>
+            <th *ngFor="let col of columns">{{col.label}}</th>
+            <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let col of columns">{{row[col.attr] || ''}}</td>
+            <td>
+                <div class="actions">
+                    <img src="assets/edit.svg" title="Editar" (click)="editRegister(row)">
+                    <img src="assets/history.svg" title="Ver histórico" (click)="historic(row)">
+                    <img src="assets/delete.svg" title="Eliminar" (click)="deleteRegister(row)">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,1 @@
+export const DATE_REGEX = /\B(?=(\d{3})+(?!\d))/g
