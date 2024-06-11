@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AdquisitionsApiConfig(AppConfig):
+class AcquisitionApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'adquisitions_api'
+    name = 'acquisition_api'
