@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import AdminUnit, Supplier, Acquisition
+from .models import AdminUnit, Supplier, Acquisition, Transaction
 
 class AdminUnitSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,4 +14,9 @@ class SupplierSerializer(serializers.ModelSerializer):
 class AcquisitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Acquisition
+        fields = '__all__'
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
         fields = '__all__'

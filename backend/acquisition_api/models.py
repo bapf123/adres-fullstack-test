@@ -39,5 +39,6 @@ class User(models.Model):
 class Transaction(models.Model):
     acquisition = models.ForeignKey(Acquisition, on_delete=models.CASCADE)
     transaction_type = models.CharField(max_length=250, choices = TransactionType)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
 
