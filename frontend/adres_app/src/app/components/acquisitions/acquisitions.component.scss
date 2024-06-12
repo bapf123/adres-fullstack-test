@@ -1,12 +1,27 @@
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-bottom: 2em
+}
+
 .table {
     overflow-x: auto;
+
     table {
+        border-collapse: collapse;
+        font-size: .9em;
         width: 100%;
-        tr {
+        .row-data {
             td {
                 text-align: center;
                 padding: 1em;
             }
+        }
+
+        .row-data:hover {
+            background-color: rgb(236, 247, 250)
         }
     }
 }
@@ -18,9 +33,11 @@
     gap: 1em;
     justify-content: center;
     align-items: center;
+
     img {
         max-height: 2em
     }
+
     img:hover {
         cursor: pointer;
         filter: brightness(0.8)
@@ -40,4 +57,29 @@
 .button:hover {
     cursor: pointer;
     filter: brightness(0.95)
+}
+
+.input-field {
+    height: 3em;
+    border: 1px solid var(--adres-light-green);
+    border-radius: .5em;
+    box-sizing: border-box;
+}
+
+.input-field:focus-visible {
+    outline-width: 0;
+    border: 2px solid var(--adres-light-green);
+}
+
+.input-field:disabled {
+    border: 1px solid gray
+}
+
+.range {
+    display: flex;
+    gap: 1em;
+
+    input {
+        max-width: 100px
+    }
 }

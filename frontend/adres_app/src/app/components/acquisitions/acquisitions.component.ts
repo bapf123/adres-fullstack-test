@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Acquisition } from 'src/app/models/Acquisition';
 
 import { AcquisitionService } from 'src/app/services/acquisition-service.service';
-import { mapObjIndexed } from 'ramda'
+import { map, mapObjIndexed } from 'ramda'
 import { Router } from '@angular/router';
-import { ACQUISITION_FIELDS, DATE_REGEX } from 'src/app/models/constants';
+import { ACQUISITION_FIELDS_TABLE, DATE_REGEX } from 'src/app/models/constants';
 
 @Component({
   selector: 'app-acquisitions',
@@ -17,7 +17,11 @@ export class AcquisitionsComponent implements OnInit {
   acquisitions: Acquisition[] = []
   data: Acquisition[] = []
 
-  columns = ACQUISITION_FIELDS
+  filterAttr: any = ACQUISITION_FIELDS_TABLE[0]
+  searcher: any = { text: '', min: undefined, max: undefined, searching: false }
+
+  columns = ACQUISITION_FIELDS_TABLE
+  filterColumns = ACQUISITION_FIELDS_TABLE.filter(col => col.filter)
 
   constructor(
     private acquisitionService: AcquisitionService, 
@@ -66,5 +70,33 @@ export class AcquisitionsComponent implements OnInit {
   goToCreate = () => {
     this._router.navigate(['/acquisition'])
   }
+
+  onFilterChange = (e: any) => {
+    this.filterAttr = JSON.parse(e.target.value)
+    this.searcher = { text: '', min: undefined, max: undefined, searching: false }
+    this.clearFilter()
+  }
+
+  toJson = (obj: any) => JSON.stringify(obj)
+
+  onInputChange = ({ target: { value } }: any, type: string) => {
+    this.searcher[type] = value
+  }
+
+  onSearch = () => {
+    this.searcher.searching = true
+    if(this.searcher.text){
+      this.treatData(this.acquisitions.filter(acq => acq[this.filterAttr.attr].toString().includes(this.searcher.text)))
+    } else if(this.searcher.min !== undefined && this.searcher.max !== undefined) {
+      this.treatData(this.acquisitions.filter(acq => {
+        const acqVal = acq[this.filterAttr.attr]
+        return (acqVal >= this.searcher.min) && (acqVal <= this.searcher.max)
+      }))
+    } else {
+      this.clearFilter()
+    }
+  }
+
+  clearFilter = () => this.treatData(this.acquisitions)
 
 }
