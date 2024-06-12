@@ -1,0 +1,12 @@
+<h1>Historial de transacciones para adquisición: {{currentId}}</h1>
+<div class="table" *ngIf="transactions.length">
+    <table>
+        <tr>
+            <th *ngFor="let col of columns">{{col.label}}</th>
+        </tr>
+        <tr *ngFor="let row of transactions">
+            <td *ngFor="let col of columns">{{row[col.attr] || ''}}</td>
+        </tr>
+    </table>
+</div>
+<p *ngIf="!transactions.length">No hay transacciones para la adquisición seleccionada</p>

@@ -1,0 +1,14 @@
+app-header {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.main {
+    margin-top: 80px;
+    .content {
+        width: 80%;
+        margin: auto;
+        padding: 20px 0
+    }
+}

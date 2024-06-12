@@ -1,0 +1,74 @@
+.form {
+    display: flex;
+    flex-direction: column;
+
+    .input-zone {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 1.5em;
+
+        .label {
+            font-size: .9em;
+            font-weight: 500;
+            margin-bottom: .2em
+        }
+
+        .input-field {
+            height: 3em;
+            border: 1px solid var(--adres-light-green);
+            border-radius: .5em;
+            box-sizing: border-box;
+            width: 100%
+        }
+
+        .input-field:focus-visible {
+            outline-width: 0;
+            border: 2px solid var(--adres-light-green);
+        }
+
+        .input-field:disabled {
+            border: 1px solid gray
+        }
+
+        .text-field {
+            padding: 1.5em 1em;
+        }
+    }
+
+    .button-zone {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 2em;
+        gap: 1em;
+        .button {
+            border: 0;
+            padding: 1em;
+            font-family: inherit;
+            border-radius: .5em;
+            font-weight: 500;
+        }
+        .save-button {
+            background-color: var(--adres-light-green);
+            color: var(--adres-blue);
+        }
+
+        .cancel-button {
+            background-color: rgb(209, 25, 25);
+            color: white
+        }
+
+        .button:hover {
+            cursor: pointer;
+            filter: brightness(0.95)
+        }
+
+        .button:disabled {
+            background-color: rgb(199, 197, 197);
+            cursor: not-allowed;
+            color: gray
+        }
+    }
+}

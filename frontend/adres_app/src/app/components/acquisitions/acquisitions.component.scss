@@ -1,0 +1,43 @@
+.table {
+    overflow-x: auto;
+    table {
+        width: 100%;
+        tr {
+            td {
+                text-align: center;
+                padding: 1em;
+            }
+        }
+    }
+}
+
+.actions {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    img {
+        max-height: 2em
+    }
+    img:hover {
+        cursor: pointer;
+        filter: brightness(0.8)
+    }
+}
+
+.button {
+    border: 0;
+    padding: 1em;
+    font-family: inherit;
+    border-radius: .5em;
+    font-weight: 500;
+    background-color: var(--adres-light-green);
+    color: var(--adres-blue);
+}
+
+.button:hover {
+    cursor: pointer;
+    filter: brightness(0.95)
+}

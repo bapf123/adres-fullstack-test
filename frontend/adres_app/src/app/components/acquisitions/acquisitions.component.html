@@ -1,0 +1,22 @@
+<div class="table" *ngIf="data.length">
+    <table>
+        <tr>
+            <th *ngFor="let col of columns">{{col.label}}</th>
+            <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let col of columns">{{row[col.attr] || ''}}</td>
+            <td>
+                <div class="actions">
+                    <img src="assets/edit.svg" title="Editar" (click)="editRegister(row)">
+                    <img src="assets/history.svg" title="Ver histórico" (click)="historic(row)">
+                    <img src="assets/delete.svg" title="Eliminar" (click)="deleteRegister(row)">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!data.length">
+    <p>No hay adquisiciones creadas</p>
+    <button class="button" (click)="goToCreate()">Crear adquisición</button>
+</div>
