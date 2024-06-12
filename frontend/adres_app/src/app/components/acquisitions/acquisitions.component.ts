@@ -5,7 +5,7 @@ import { Acquisition } from 'src/app/models/Acquisition';
 import { AcquisitionService } from 'src/app/services/acquisition-service.service';
 import { mapObjIndexed } from 'ramda'
 import { Router } from '@angular/router';
-import { DATE_REGEX } from 'src/app/models/constants';
+import { ACQUISITION_FIELDS, DATE_REGEX } from 'src/app/models/constants';
 
 @Component({
   selector: 'app-acquisitions',
@@ -17,19 +17,7 @@ export class AcquisitionsComponent implements OnInit {
   acquisitions: Acquisition[] = []
   data: Acquisition[] = []
 
-  columns = [
-    { attr: 'id', label: 'Id' },
-    { attr: 'budget', label: 'Presupuesto' },
-    { attr: 'unit', label: 'Unidad' },
-    { attr: 'acquisition_type', label: 'Tipo de bien o servicio' },
-    { attr: 'quantity', label: 'Cantidad' },
-    { attr: 'unit_cost', label: 'Valor unitario' },
-    { attr: 'total_cost', label: 'Total' },
-    { attr: 'date', label: 'Fecha de adquisición' },
-    { attr: 'supplier', label: 'Proveedor' },
-    { attr: 'docs', label: 'Documentación' },
-    { attr: 'status', label: 'Estado' },
-  ]
+  columns = ACQUISITION_FIELDS
 
   constructor(
     private acquisitionService: AcquisitionService, 
@@ -60,7 +48,7 @@ export class AcquisitionsComponent implements OnInit {
   })[attr] || (val => val)
 
   editRegister = (row: Acquisition) => {
-    this._router.navigate(['/acquisition'], { queryParams: { id: row.id } })
+    this._router.navigate(['/acquisition'], { queryParams: { id: row.id },  })
   }
 
   deleteRegister = (row: Acquisition) => {

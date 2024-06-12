@@ -19,16 +19,16 @@ export class HomeComponent implements OnInit {
       route: '/acquisition',
       icon: 'assets/add.svg'
     },
-    {
-      label: 'Modificar adquisición',
-      route: '/acquisition',
-      icon: 'assets/edit.svg'
-    },
-    {
-      label: 'Histórico',
-      route: '/historic',
-      icon: 'assets/history.svg'
-    }
+    // {
+    //   label: 'Modificar adquisición',
+    //   route: '/acquisition',
+    //   icon: 'assets/edit.svg'
+    // },
+    // {
+    //   label: 'Histórico',
+    //   route: '/historic',
+    //   icon: 'assets/history.svg'
+    // }
   ]
 
   constructor(private _router: Router) { }

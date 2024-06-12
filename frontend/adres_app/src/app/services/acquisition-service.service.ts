@@ -16,6 +16,10 @@ export class AcquisitionService {
     return this._http.get<Acquisition[]>(`${environment.acquisitionEndpoint}/acquisition/`)
   }
 
+  getAcquisition(id: number): Observable<Acquisition> {
+    return this._http.get<Acquisition>(`${environment.acquisitionEndpoint}/acquisition/${id}/`)
+  }
+
   editAcquisition(acquisition: Acquisition): Observable<Acquisition> {
     return this._http.patch<Acquisition>(`${environment.acquisitionEndpoint}/acquisition/${acquisition.id}/`, acquisition)
   }
