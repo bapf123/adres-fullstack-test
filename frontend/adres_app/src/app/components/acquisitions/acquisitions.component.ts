@@ -53,7 +53,7 @@ export class AcquisitionsComponent implements OnInit {
 
   deleteRegister = (row: Acquisition) => {
     this.acquisitionService.editAcquisition({ id: row.id, status: 'DELETED' } as Acquisition).subscribe(_ => {
-      this.acquisitions = this.acquisitions.filter(acq => acq.id !== row.id)
+      this.treatData(this.acquisitions.filter(acq => acq.id !== row.id))
     })
   }
 
