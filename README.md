@@ -7,9 +7,9 @@ To run the back-end locally, execute the next script from the root path of the p
 cd backend
 python manage.py runserver
 ```
-By default it will run on port 8000, you have to run this first so the frontend can be used without any problem.
+By default it will run on port ```8000```, you have to run this first so the frontend can be used without any problem.
 
-The backed is using SQLite, if migrations are needed, run the next scripts:
+The backed is using SQLite, if migrations are needed, run the next script:
 ```
 python manage.py makemigrations
 python manage.py migrate
@@ -22,4 +22,4 @@ To run the front-end locally, execute the next script from the root path of the 
 cd frontend_adres_app
 ng s
 ```
-By default it will run on port 4200 so you can go to the following link ```locahost:4200``.
+By default it will run on port ```4200``` so you can go to the following link ```locahost:4200```.
