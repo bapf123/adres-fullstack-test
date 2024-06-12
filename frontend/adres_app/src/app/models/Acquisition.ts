@@ -15,3 +15,8 @@ export interface Acquisition extends IObjectKeys {
     unit: number
     supplier: number
 }
+
+export const ACQUISITION_STATUS: any = [
+    { id: 'ENABLED', name: 'Activada' },
+    { id: 'DISABLED', name: 'Desactivada'}
+]

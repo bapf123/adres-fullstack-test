@@ -1,10 +1,12 @@
-table {
-    width: 100%;
-    table-layout:fixed;
-    tr {
-        td {
-            text-align: center;
-            padding: 1em;
+.table {
+    overflow-x: auto;
+    table {
+        width: 100%;
+        tr {
+            td {
+                text-align: center;
+                padding: 1em;
+            }
         }
     }
 }

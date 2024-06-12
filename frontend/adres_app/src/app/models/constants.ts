@@ -13,12 +13,12 @@ export const ACQUISITION_FIELDS = [
     { attr: 'date', label: 'Fecha de adquisición', type: 'date' },
     { attr: 'supplier', label: 'Proveedor', type: 'select' },
     { attr: 'docs', label: 'Documentación', type: 'text' },
-    { attr: 'status', label: 'Estado', type: 'text' },
+    { attr: 'status', label: 'Estado', type: 'select' },
 ]
 
 export const TRANSACTION_FIELDS = [
     { attr: 'id', label: 'ID Transacción', type: 'number' },
-    { attr: 'acquisition', label: 'ID Adquisición', type: 'number' },
+    // { attr: 'acquisition', label: 'ID Adquisición', type: 'number' },
     { attr: 'transaction_type', label: 'Tipo', type: 'text' },
     { attr: 'date', label: 'Fecha', type: 'date' }
 ]

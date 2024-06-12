@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { Acquisition } from 'src/app/models/Acquisition';
+import { ACQUISITION_STATUS, Acquisition } from 'src/app/models/Acquisition';
 import { AdminUnit } from 'src/app/models/AdminUnit';
 import { Supplier } from 'src/app/models/Supplier';
 import { ACQUISITION_FIELDS } from 'src/app/models/constants';
@@ -106,7 +106,8 @@ export class AcquisitionComponent implements OnInit {
 
   getOptions = (attr: string) => ({
     supplier: this.suppliers,
-    unit: this.adminUnits
+    unit: this.adminUnits,
+    status: ACQUISITION_STATUS
   })[attr]
 
 }
