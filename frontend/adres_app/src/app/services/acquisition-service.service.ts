@@ -24,5 +24,7 @@ export class AcquisitionService {
     return this._http.patch<Acquisition>(`${environment.acquisitionEndpoint}/acquisition/${acquisition.id}/`, acquisition)
   }
 
-  // getHistoric(acquisition: Acquisition): Observable
+  saveAcquisition(acquisition: Acquisition): Observable<Acquisition> {
+    return this._http.post<Acquisition>(`${environment.acquisitionEndpoint}/acquisition/`, acquisition)
+  }
 }

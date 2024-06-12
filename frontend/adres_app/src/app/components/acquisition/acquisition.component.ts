@@ -54,9 +54,16 @@ export class AcquisitionComponent implements OnInit {
 
 
   saveAcquisition = () => {
-    this.acquisitionService.editAcquisition(this.acquisitionForm.getRawValue()).subscribe(_ => {
-      this._router.navigate(['/acquisitions'])
-    })
+    const acquisition = this.acquisitionForm.getRawValue()
+    if(acquisition.id){
+      this.acquisitionService.editAcquisition(acquisition).subscribe(_ => {
+        this._router.navigate(['/acquisitions'])
+      })
+    } else {
+      this.acquisitionService.saveAcquisition(acquisition).subscribe(_ => {
+        this._router.navigate(['/acquisitions'])
+      })
+    }
   }
 
   cancel = () => {
