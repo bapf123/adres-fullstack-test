@@ -1,4 +1,4 @@
-interface IObjectKeys {
+export interface IObjectKeys {
     [key: string]: string | number;
 }
 

@@ -24,3 +24,18 @@ table {
         filter: brightness(0.8)
     }
 }
+
+.button {
+    border: 0;
+    padding: 1em;
+    font-family: inherit;
+    border-radius: .5em;
+    font-weight: 500;
+    background-color: var(--adres-light-green);
+    color: var(--adres-blue);
+}
+
+.button:hover {
+    cursor: pointer;
+    filter: brightness(0.95)
+}

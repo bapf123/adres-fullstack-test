@@ -67,7 +67,7 @@ export class AcquisitionComponent implements OnInit {
   }
 
   cancel = () => {
-    console.log('okl')
+    this._router.navigate(['/home'])
   }
 
   getAcquisitionData = () => {

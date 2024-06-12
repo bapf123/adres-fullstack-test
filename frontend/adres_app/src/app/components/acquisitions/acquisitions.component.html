@@ -1,4 +1,4 @@
-<div class="table">
+<div class="table" *ngIf="data.length">
     <table>
         <tr>
             <th *ngFor="let col of columns">{{col.label}}</th>
@@ -15,4 +15,8 @@
             </td>
         </tr>
     </table>
+</div>
+<div *ngIf="!data.length">
+    <p>No hay adquisiciones creadas</p>
+    <button class="button" (click)="goToCreate()">Crear adquisición</button>
 </div>

@@ -63,4 +63,8 @@ export class AcquisitionsComponent implements OnInit {
 
   treatNumber = (val: number) => `$ ${val.toString().replace(DATE_REGEX, '.')}`
 
+  goToCreate = () => {
+    this._router.navigate(['/acquisition'])
+  }
+
 }

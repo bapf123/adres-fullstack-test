@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Acquisition } from '../models/Acquisition';
-
+import { Transaction } from '../models/Transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class AcquisitionService {
 
   saveAcquisition(acquisition: Acquisition): Observable<Acquisition> {
     return this._http.post<Acquisition>(`${environment.acquisitionEndpoint}/acquisition/`, acquisition)
+  }
+
+  getTransactions(acquisitionId: number): Observable<Transaction[]> {
+    return this._http.get<Transaction[]>(`${environment.acquisitionEndpoint}/transaction/`, { params: { acquisition_id: acquisitionId } })
   }
 }
