@@ -11,6 +11,13 @@ class SupplierSerializer(serializers.ModelSerializer):
         model = Supplier
         fields = '__all__'
 
+class AcquisitionListSerializer(serializers.ModelSerializer):
+    supplier_name = serializers.CharField(source='supplier.name')
+    unit_name = serializers.CharField(source='unit.name')
+    class Meta:
+        model = Acquisition
+        fields = '__all__'
+
 class AcquisitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Acquisition

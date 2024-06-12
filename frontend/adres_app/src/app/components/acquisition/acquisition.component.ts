@@ -5,7 +5,7 @@ import { forkJoin } from 'rxjs';
 import { ACQUISITION_STATUS, Acquisition } from 'src/app/models/Acquisition';
 import { AdminUnit } from 'src/app/models/AdminUnit';
 import { Supplier } from 'src/app/models/Supplier';
-import { ACQUISITION_FIELDS } from 'src/app/models/constants';
+import { ACQUISITION_FIELDS_FORM } from 'src/app/models/constants';
 import { AcquisitionService } from 'src/app/services/acquisition-service.service';
 import { AdminUnitService } from 'src/app/services/admin-unit.service';
 import { SupplierService } from 'src/app/services/supplier.service';
@@ -25,7 +25,7 @@ export class AcquisitionComponent implements OnInit {
 
   options = [{id: 1, name: 'Opción 1'}]
 
-  fields = ACQUISITION_FIELDS
+  fields = ACQUISITION_FIELDS_FORM
 
   constructor(
     private route: ActivatedRoute,

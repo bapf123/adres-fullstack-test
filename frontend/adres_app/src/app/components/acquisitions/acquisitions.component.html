@@ -1,10 +1,24 @@
+<div class="filter">
+    <select class="input-field" (change)="onFilterChange($event)">
+        <option *ngFor="let op of filterColumns" [value]="toJson(op)">{{op.label}}</option>
+    </select>
+    <ng-container [ngSwitch]="filterAttr.type">
+        <input *ngSwitchDefault class="input-field text-field" [type]="filterAttr.type" [placeholder]="filterAttr.label" (change)="onInputChange($event, 'text')"/>
+        <div class="range" *ngSwitchCase="'number'">
+            <input class="input-field text-field" type="number" placeholder="Desde" (change)="onInputChange($event, 'min')"/>
+            <input class="input-field text-field" type="number" placeholder="Hasta" (change)="onInputChange($event, 'max')"/>
+        </div>
+    </ng-container>
+    <button class="button" (click)="onSearch()">Buscar</button>
+    <button class="button" (click)="clearFilter()">Limpiar</button>
+</div>
 <div class="table" *ngIf="data.length">
     <table>
         <tr>
             <th *ngFor="let col of columns">{{col.label}}</th>
             <th>Acciones</th>
         </tr>
-        <tr *ngFor="let row of data">
+        <tr *ngFor="let row of data" class="row-data">
             <td *ngFor="let col of columns">{{row[col.attr] || ''}}</td>
             <td>
                 <div class="actions">
@@ -16,7 +30,6 @@
         </tr>
     </table>
 </div>
-<div *ngIf="!data.length">
-    <p>No hay adquisiciones creadas</p>
+<div *ngIf="!data.length && !searcher.searching">
     <button class="button" (click)="goToCreate()">Crear adquisición</button>
 </div>

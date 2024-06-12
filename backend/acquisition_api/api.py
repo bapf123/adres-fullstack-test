@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 
 from acquisition_api.models import AdminUnit, Supplier, Acquisition, Transaction
-from acquisition_api.serializers import AdminUnitSerializer, SupplierSerializer, AcquisitionSerializer, TransactionSerializer
+from acquisition_api.serializers import AdminUnitSerializer, SupplierSerializer, AcquisitionSerializer, AcquisitionListSerializer, TransactionSerializer
 
 class AdminUnitViewSet(viewsets.ModelViewSet):
     queryset = AdminUnit.objects.all()
@@ -16,7 +16,11 @@ class SupplierViewSet(viewsets.ModelViewSet):
 class AcquisitionViewSet(viewsets.ModelViewSet):
     queryset = Acquisition.objects.all()
     permission_classes = [permissions.AllowAny]
-    serializer_class = AcquisitionSerializer
+
+    def get_serializer_class(self):
+        if self.action in ['list', 'retrieve']:
+            return AcquisitionListSerializer
+        return AcquisitionSerializer
 
 class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
