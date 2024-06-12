@@ -19,16 +19,18 @@ export class HomeComponent implements OnInit {
       route: '/acquisition',
       icon: 'assets/add.svg'
     },
-    // {
-    //   label: 'Modificar adquisición',
-    //   route: '/acquisition',
-    //   icon: 'assets/edit.svg'
-    // },
-    // {
-    //   label: 'Histórico',
-    //   route: '/historic',
-    //   icon: 'assets/history.svg'
-    // }
+    {
+      label: 'Crear proveedor',
+      route: '/create-entity',
+      params: { entity: 'supplier' },
+      icon: 'assets/add_supplier.svg'
+    },
+    {
+      label: 'Crear unidad administrativa',
+      route: '/create-entity',
+      params: { entity: 'adminUnit' },
+      icon: 'assets/add_admin.svg'
+    }
   ]
 
   constructor(private _router: Router) { }
@@ -36,8 +38,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCardClicked = (route: string) => {
-    this._router.navigate([route])
+  onCardClicked = (button: any) => {
+    this._router.navigate([button.route], { queryParams: button.params || {} })
   }
 
 }

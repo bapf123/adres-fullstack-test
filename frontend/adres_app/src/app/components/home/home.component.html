@@ -1,6 +1,6 @@
 <h1>Bienvenido al portal de Adquisiciones</h1>
 <div class="buttons-zone">
-    <div class='button-cont' *ngFor="let button of buttons" (click)="onCardClicked(button.route)">
+    <div class='button-cont' *ngFor="let button of buttons" (click)="onCardClicked(button)">
         <div class="icon">
             <img [src]="button.icon"/>
         </div>

@@ -1,8 +1,14 @@
 <h1>{{(currentId ? "Modificar" : "Crear")+" una adquisición"}}</h1>
 <form class='form' [formGroup]="acquisitionForm" (ngSubmit)="saveAcquisition()">
-    <div class="input-zone" *ngFor="let field of fields">
+     <div class="input-zone" *ngFor="let field of fields">
         <label class="label" [for]="field.attr">{{field.label}}</label>
-        <input class='input-field' [type]="field.type" [placeholder]="field.label" [formControlName]="field.attr">
+
+        <ng-container [ngSwitch]="field.type">
+            <input *ngSwitchDefault class="input-field text-field" [type]="field.type" [placeholder]="field.label" [formControlName]="field.attr" />
+            <select *ngSwitchCase="'select'" class='input-field' [formControlName]="field.attr">
+                <option *ngFor="let op of getOptions(field.attr)" [ngValue]="op.id">{{ op.name }}</option>
+            </select>
+        </ng-container>
     </div>
     <div class="button-zone">
         <button class="button cancel-button" (click)="cancel()">Cancelar</button>

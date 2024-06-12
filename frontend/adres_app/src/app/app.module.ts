@@ -12,6 +12,7 @@ import { AcquisitionComponent } from './components/acquisition/acquisition.compo
 import { AcquisitionsComponent } from './components/acquisitions/acquisitions.component';
 import { HistoricComponent } from './components/historic/historic.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateEntityComponent } from './components/create-entity/create-entity.component';
 
 registerLocaleData(localeEs, 'es-CO');
 
@@ -22,7 +23,8 @@ registerLocaleData(localeEs, 'es-CO');
     HeaderComponent,
     AcquisitionComponent,
     AcquisitionsComponent,
-    HistoricComponent
+    HistoricComponent,
+    CreateEntityComponent
   ],
   imports: [
     BrowserModule,

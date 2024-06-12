@@ -1,0 +1,12 @@
+<h1>Crear {{entity.label}}</h1>
+<form class='form' [formGroup]="entityForm" (ngSubmit)="saveEntity()">
+    <div class="input-zone" *ngFor="let field of entity.fields">
+        <label class="label" [for]="field.attr">{{field.label}}</label>
+        <input class="input-field text-field" [type]="field.type" [placeholder]="field.label"
+            [formControlName]="field.attr" />
+    </div>
+    <div class="button-zone">
+        <button class="button cancel-button" (click)="cancel()">Cancelar</button>
+        <button class="button save-button" type="submit" [disabled]="!entityForm.valid">Guardar</button>
+    </div>
+</form>

@@ -12,11 +12,11 @@ export class AdminUnitService {
 
   constructor(private _http: HttpClient) { }
 
-  getSuppliers(): Observable<AdminUnit[]> {
+  getAdminUnits(): Observable<AdminUnit[]> {
     return this._http.get<AdminUnit[]>(`${environment.acquisitionEndpoint}/admin-unit/`)
   }
 
-  saveSupplier(adminUnit: AdminUnit): Observable<AdminUnit> {
+  saveAdminUnit(adminUnit: AdminUnit): Observable<AdminUnit> {
     return this._http.post<AdminUnit>(`${environment.acquisitionEndpoint}/admin-unit/`, adminUnit)
   }
 }

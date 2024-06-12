@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AcquisitionComponent } from './components/acquisition/acquisition.component';
 import { AcquisitionsComponent } from './components/acquisitions/acquisitions.component';
 import { HistoricComponent } from './components/historic/historic.component';
+import { CreateEntityComponent } from './components/create-entity/create-entity.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'historic', component: HistoricComponent
+  },
+  {
+    path: 'create-entity', component: CreateEntityComponent
   },
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
