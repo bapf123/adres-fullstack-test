@@ -1,19 +1,25 @@
 # adres-fullstack-test
-Prueba técnica fullstack developer para ADRES - Bryan Pardo
+Technical test fullstack developer for ADRES - Bryan Pardo
 
-# Cómo correr el front
-Para efectos de prueba, el front se puede correr localmente de la siguiente manera, desde el root del proyecto:
-```
-cd frontend\adres_app
-ng s
-```
-Por defecto correrá sobre el puerto 4200, entrar al siguiente link ```locahost:4200```.
-
-
-# Cómo correr el back
-Para efectos de prueba, el back se puede correr localmente de la siguiente manera, desde el root del proyecto:
+# How to run the back-end
+To run the back-end locally, execute the next script from the root path of the project:
 ```
 cd backend
 python manage.py runserver
 ```
-Por defecto correrá sobre el puerto 8000, con esto, el front podrá ser usado sin problema.
+By default it will run on port 8000, you have to run this first so the frontend can be used without any problem.
+
+The backed is using SQLite, if migrations are needed, run the next scripts:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+
+# How to run the front-end
+To run the front-end locally, execute the next script from the root path of the project:
+```
+cd frontend_adres_app
+ng s
+```
+By default it will run on port 4200 so you can go to the following link ```locahost:4200``.
