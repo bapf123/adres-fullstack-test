@@ -7,4 +7,28 @@
     img {
         height: 60px
     }
+    position: relative;
+
+    .back-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5em;
+        span {
+            margin: 0
+        }
+        color: var(--adres-blue);
+        position: absolute;
+        left: 20px;
+        .icon {
+            font-size: 1.5em
+        }
+        .label {
+            font-size: .9em;
+        }
+    }
+
+    .back-button:hover {
+        cursor: pointer
+    }
 }
